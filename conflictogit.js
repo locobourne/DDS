@@ -42,7 +42,7 @@ function agregarReserva(){
     const jugadorStr = jugadorInput.value.trim();
 
     if (!fechaStr || !horaStr || !canchaStr || !jugador){
-        alert('Todos los campos son requeridos, COMPLETAR');
+        alert('Todos los campos son requeridos, completalos por favor');
         return;
     }
 
