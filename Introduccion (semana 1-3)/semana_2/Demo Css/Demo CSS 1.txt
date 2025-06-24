@@ -1,0 +1,42 @@
+Paso 1
+======
+Crear un documento HTML básico que tenga como título del documento "Hola Mundo", un encabezado y un párrafo.
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hola Mundo</title>
+</head>
+<body>
+  <h1>Hola Mundo</h1>
+  <p>Mi primer documento html</p>
+</body>
+</html>
+ 
+Paso 2
+======
+Agregar estilo en línea al párrafo para el que color de fondo se amarillo
+
+Agregar estilo en línea al <body> para que el fondo del mismo sea de color verde
+
+Debajo del párrafo, agregar un <div> y dentro del un párrafo con estilo en línea para que el texto sea de color rojo
+
+Paso 3
+======
+En el head del documento agregar un estilo para todos los h1 que cambie el color del texto a blue
+
+Paso 4
+======
+Agregar un estilo en línea al <h1> que contiene el "Hola Mundo" para que el color del texto sea Rojo
+
+Paso 5
+======
+Crear una hoja de estilo en la que se defina que el color de fondo del <body> debe ser color gris claro
+
+Agregar la referencia a la hoja de estilo en el head 
+
+Borrar el estilo inline del <body>
+
+Paso 6
+======
+Invertir el orden de las etiquetas <style> y <link> en el head

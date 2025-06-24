@@ -1,0 +1,39 @@
+Paso 1
+======
+Partiendo del BoxModel.html y estilosBoxModel.css, crear el selector ".contenedor" y establecer los atributos "background-color" en amarillo y el borde de color negro, en 1 pixel y de tipo solido
+
+Paso 2
+======
+Crear el selector ".contenedor2" como copia del ".contenedor" y establecer el borde a 3 pixels, de color rojo y linea punteada "dotted".
+
+Luego establecer la lase del span con a "contenedor2"
+
+Paso 3
+======
+Agregar a la definición de la clase contenedor el un padding de 15 pixels
+
+Paso 4
+======
+Convierta el elemento <span> en un <div>
+
+Paso 5
+======
+Agregue a la definición de la clase contenedor2 el atributo margin a 10 pixels
+
+Paso 6
+======
+Agregue a la definición de la clase contenedor1 el atributo margin-left a 50 pixels
+
+Paso 7
+======
+Modifique la definición de la clase contenedor1 para que el margen sea top=50, right=100, bottom=20, left=400
+
+Paso 8
+======
+Modifique la definición de la clase contenedor1 para que el margen sea top=50, right y left al mismo tiempo=500, bottom=20
+
+Paso 9
+======
+Modifique la definición de la clase contenedor1 para que el margen sea top y bottom al mismo tiempo= 50, right y left al mismo tiempo=500
+
+

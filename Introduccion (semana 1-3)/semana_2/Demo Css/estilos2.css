@@ -1,0 +1,24 @@
+/* Paso 1 */
+p {
+  color: black;
+}
+
+/* Paso 2 */
+p.text {
+  color: green;
+}
+
+/* Paso 3 */
+.text {
+  color: darkmagenta;
+}
+
+/* Paso 4 */
+#miparrafo {
+  color: magenta;
+}
+
+/* Paso 5 */
+div label {
+  color: blue;
+}

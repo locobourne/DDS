@@ -1,0 +1,23 @@
+/* Paso 1 y 3: .contenedor con fondo amarillo, borde negro y padding */
+.contenedor {
+  background-color: yellow;
+  border: 1px solid black;
+  padding: 15px;
+}
+
+/* Paso 2 y 5: .contenedor2 copia de .contenedor con borde rojo punteado y margin */
+.contenedor2 {
+  background-color: yellow;
+  border: 3px dotted red;
+  padding: 15px;
+  margin: 10px;
+}
+
+/* Paso 6 a 9: .contenedor1 con márgenes personalizados */
+.contenedor1 {
+  background-color: yellow;
+  border: 1px solid black;
+  padding: 15px;
+  /* Paso 9: margen top/bottom 50px, right/left 500px */
+  margin: 50px 500px;
+}

@@ -1,0 +1,27 @@
+Paso 1
+======
+Tomando el resultado del demo anterior, modificar la hoja de estilo para que la misma contenga definiciones de estilo para todos los párrafos estableciendo color del texto a negro
+
+Paso 2
+======
+Agregar un selector en la hoja de estilo para todos los párrafos pertenecientes la clase "text" en el que se declare que el texto debe ser de color verde
+
+Identificar al párrafo que se encuentra entro el div como perteneciente a la clase "text" y eliminar el estilo inline del párrafo
+
+Paso 3
+======
+Agregar un selector en la hoja de estilo para todos los elementos que pertenezcan a la case "text" en el que se declare que el texto debe ser de color "darkmagenta"
+
+Eliminar el estilo en línea para el elemento <h1>
+
+Paso 4
+======
+Agregar un selector para el elemento cuyo id sea "miparrafo" en el que se declare que el texto debe ser color "magenta"
+
+Identificar al párrafo que esta dentro del <div> con el id "miparrafo"
+
+Paso 5
+======
+Agregar 3 elementos de tipo <label>, el primero debajo del primer párrafo y los dos restantes debajo el párrafo que se encuentra dentro del <div>. Agregar un <br> entre el 2do y 3er <label>
+
+Agregar a la hoja de estilo un selector para todos los labels que se encuentran entro de un <div> en el que se declare que el texto es de color 

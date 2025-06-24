@@ -1,0 +1,21 @@
+# Node.js
+node_modules/
+.env
+dist/
+build/
+*.log
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# VSCode
+.vscode/
+
+# Archivos de pruebas o temporales
+*.tmp
+*.bak
+
+# IDEs comunes
+.idea/
+*.iml
