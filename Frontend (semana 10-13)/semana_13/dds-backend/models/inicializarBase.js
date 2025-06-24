@@ -3,7 +3,15 @@ import categorias from './categoriasModel.js';
 import articulos from './articulosModel.js';
 import usuarios from './usuariosModel.js';
 
-if (require.main === module) {
+
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+if (process.argv[1] === __filename) {
   inicializarBase();    // si se ejecuta este archivo directamente, inicializa la base de datos, si no se lo ejecutará antes de levantar el servidor
 }
 
@@ -12,8 +20,6 @@ async function inicializarBase() {
   try {
 
    // verfica si el archivo de base de datos existe
-    const fs = require('fs');
-    const path = require('path');
     const archivo = path.join(__dirname, '.././data/pymes.db');
     if (fs.existsSync(archivo)) {
       return;   // si existe lo deja tal cual

@@ -44,12 +44,26 @@ let arr_CategoriasMock = [
   }
 ];
 
-router.get('/api/categoriasmock/:id', async function (req, res) {
-  let categoria = arr_CategoriasMock.find(
-    (x) => x.IdCategoria == req.params.id
-  );
-  if (categoria) res.json(categoria);
-  else res.status(404).json({ message: 'categoria no encontrado' });
+router.get('/api/categoriasmock', async function (req, res) {
+  const { IdCategoria, Nombre } = req.query;
+
+  let resultado = arr_CategoriasMock;
+
+  if (IdCategoria) {
+    resultado = resultado.filter(x => x.IdCategoria == IdCategoria);
+  }
+
+  if (Nombre) {
+    resultado = resultado.filter(x =>
+      x.Nombre.toLowerCase().includes(Nombre.toLowerCase())
+    );
+  }
+
+  if (resultado.length > 0) {
+    res.json(resultado);
+  } else {
+    res.status(404).json({ message: 'categoria no encontrado' });
+  }
 });
 
 router.post('/api/categoriasmock/', (req, res) => {
