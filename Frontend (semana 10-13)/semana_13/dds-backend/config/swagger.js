@@ -4,7 +4,7 @@ const options = {
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "API de Articulos",
+      title: "API de Articulos y Seguridad",
       version: "1.0.0",
       description: "Documentación generada con swagger-jsdoc",
     },
@@ -23,8 +23,27 @@ const options = {
         name: "Seguridad",
         description: "Autenticación y autorización",
       },
+      {
+        name: "Usuarios",
+        description: "Operaciones sobre usuarios",
+      },
+      {
+        name: "Categorias",
+        description: "Operaciones sobre categorías",
+      },
+      {
+        name: "CategoriasMock",
+        description: "Operaciones sobre categorías mock",
+      },
     ],
     components: {
+      securitySchemes: {
+        bearerAuth: {
+          type: "http",
+          scheme: "bearer",
+          bearerFormat: "JWT",
+        },
+      },
       schemas: {
         Articulo: {
           type: "object",
@@ -44,6 +63,33 @@ const options = {
           },
           required: ["Nombre", "Precio", "Stock", "Activo"],
         },
+        Usuario: {
+          type: "object",
+          properties: {
+            id: { type: "integer", example: 1 },
+            nombre: { type: "string", example: "Juan Pérez" },
+            email: { type: "string", example: "juan@example.com" },
+            rol: { type: "string", example: "jefe" }
+          },
+          required: ["id", "nombre", "email", "rol"]
+        },
+        Categoria: {
+          type: "object",
+          properties: {
+            id: { type: "integer", example: 1 },
+            nombre: { type: "string", example: "Electrónica" },
+            descripcion: { type: "string", example: "Productos electrónicos y gadgets" }
+          },
+          required: ["id", "nombre"]
+        },
+        CategoriaMock: {
+          type: "object",
+          properties: {
+            IdCategoria: { type: "integer", example: 12345 },
+            Nombre: { type: "string", example: "Electrónica" }
+          },
+          required: ["IdCategoria", "Nombre"]
+        },
         LoginRequest: {
           type: "object",
           properties: {
@@ -60,10 +106,23 @@ const options = {
             message: { type: "string" },
           },
         },
+        MessageResponse: {
+          type: "object",
+          properties: {
+            message: { type: "string" },
+          },
+        },
+        RefreshTokenRequest: {
+          type: "object",
+          properties: {
+            refreshToken: { type: "string" },
+          },
+          required: ["refreshToken"],
+        },
       },
     },
   },
-  apis: ["./routes/*.js"], // apunta a todos los JS en /routes
+  apis: ["./routes/*.js"],
 };
 
 const swaggerSpec = swaggerJSDoc(options);

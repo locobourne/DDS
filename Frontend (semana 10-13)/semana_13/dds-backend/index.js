@@ -3,10 +3,13 @@ import categoriasmockRouter from "./routes/categoriasmock.js";
 import inicializarBase from "./models/inicializarBase.js";
 import categoriasRouter from "./routes/categorias.js";
 import articulosRouter from "./routes/articulos.js";
+import seguridadRouter from "./routes/seguridad.js";
+import usuariosRouter from "./routes/usuarios.js";
 import cors from "cors";
 
 import swaggerUi from "swagger-ui-express";
 import swaggerSpec from "./config/swagger.js";
+console.log(Object.keys(swaggerSpec.paths)); 
 
 // crear servidor
 const app = express();
@@ -28,6 +31,8 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use(categoriasRouter);
 app.use(categoriasmockRouter);
 app.use(articulosRouter);
+app.use(seguridadRouter);
+app.use(usuariosRouter);
 
 app.get("/", (req, res) => {
   res.send("Backend inicial dds-backend!");

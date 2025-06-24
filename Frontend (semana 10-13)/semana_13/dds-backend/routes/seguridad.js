@@ -24,7 +24,7 @@ let refreshTokens = [];
  *   post:
  *     tags:
  *       - Seguridad
- *     summary: Login de usuarios: admin:123 (rol jefe), juan:123 (rol empleado)
+ *     summary: "Login de usuarios: admin:123 (rol jefe), juan:123 (rol empleado)"
  *     description: Valida las credenciales y retorna un accessToken y refreshToken si son correctas.
  *     requestBody:
  *       required: true
@@ -96,7 +96,7 @@ router.post("/api/login", (req, res) => {
  *   post:
  *     tags:
  *       - Seguridad
- *     summary: Logout: invalida el refresh token (no invalida el token actual)
+ *     summary: "Logout: invalida el refresh token (no invalida el token actual)"
  *     description: Elimina el refresh token para evitar renovar el access token cuando expire.
  *     security:
  *       - bearerAuth: []
@@ -106,10 +106,7 @@ router.post("/api/login", (req, res) => {
  *         content:
  *           application/json:
  *             schema:
- *               type: object
- *               properties:
- *                 message:
- *                   type: string
+ *               $ref: '#/components/schemas/MessageResponse'
  */
 router.post("/api/logout", (req, res) => {
   // recordar que el token sigue válido hasta que expire, aquí evitamos que pueda renovarse cuando expire!
