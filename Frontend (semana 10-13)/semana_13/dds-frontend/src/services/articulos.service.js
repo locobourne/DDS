@@ -1,5 +1,10 @@
 import httpService from "./http.service";
-const urlResource = "https://labsys.frc.utn.edu.ar/dds-backend-2025/api/articulos";
+import { config } from "../config.js";
+
+const urlResource = config.urlResourceArticulos;
+
+
+
 // mas adelante podemos usar un archivo de configuración para el urlResource
 // import {config} from "../config";
 // const urlResource = config.urlResourceArticulos;
