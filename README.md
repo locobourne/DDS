@@ -1,4 +1,4 @@
-# 📚 Portfolio 2025 - Desarrollo de Software 1 (3K7)
+# 📚 Portfolio 2025 - Desarrollo de Software (3K7)
 
 Este repositorio contiene el desarrollo semanal de trabajos prácticos y desafíos correspondientes a la materia **Desarrollo de Software** de la carrera de Ingeniería en Sistemas, cursada en el año 2025 (UTN - FRC).
 
@@ -32,6 +32,15 @@ git clone https://labsys.frc.utn.edu.ar/gitlab/desarrollo-de-software1/proyectos
 
 ---
 
+## 📊 Contenido adicional
+
+| Carpeta     | Descripción                                               |
+| ----------- | --------------------------------------------------------- |
+| Desafios    | Contiene los Desafíos 1 y 2                               |
+| Paso a Paso | Implementación completa de una web con backend y frontend |
+
+---
+
 ## 👨‍💻 Autor
 
 * **Nombre:** Maximo Castillo
@@ -43,4 +52,4 @@ git clone https://labsys.frc.utn.edu.ar/gitlab/desarrollo-de-software1/proyectos
 ## 📄 Licencia
 
 Repositorio académico sin fines comerciales.
-Uso educativo exclusivo en el marco de la cursada de Desarrollo de Software 1.
+Uso educativo exclusivo en el marco de la cursada de Desarrollo de Software.
