@@ -15,7 +15,7 @@ const router = express.Router();
  *       - Usuarios
  *     summary: Obtener todas los usuarios (requiere autenticación JWT)
  *     description: >
- *       Retorna todos los usuarios si el usuario autenticado tiene el rol "jefe" o "empleado".
+ *       Retorna todos los usuarios si el usuario autenticado tiene el rol "jefe".
  *       Se valida el token JWT para autenticación y luego el rol para autorización.
  *     security:
  *       - bearerAuth: []
@@ -51,14 +51,9 @@ const router = express.Router();
  */
 router.get('/api/usuarios',
   auth.authenticateJWT,
-  authorizedRoles(['jefe', 'empleado']),
+  authorizedRoles(['jefe']),
   async function (req, res, next) {
     try {
-      // si llego hasta acá, es porque el token es válido y esta autenticado
-
-      // ahora controlamos autorización, segun el rol
-      // (esta parte ya la resuelve el middleware authorizedRoles, pero dejamos el comentario original)
-      
       const items = await usuarios.findAll();
       res.json(items);
     } catch (error) {

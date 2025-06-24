@@ -7,7 +7,7 @@ export function authorizedRoles(allowedRoles = []) {
     if (allowedRoles.includes(user.rol)) {
       next();
     } else {
-      res.status(403).json({ message: "Usuario no autorizado" });
+      res.status(403).json({ message: "usuario no autorizado!" });
     }
   };
 }

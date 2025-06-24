@@ -7,23 +7,20 @@ beforeAll(async () => {
   await inicializarBase(); // crea tablas e inserta datos
 });
 
-
 const usuarioJefe = { usuario: "admin", clave: "123" };
 const usuarioEmpleado = { usuario: "juan", clave: "123" };
 
-
-describe("POST /api/login admin", function () {
+describe("POST /api/login jefe", function () {
   it("Devolveria error de autenticacion, porque tiene clave errónea", async function () {
     const res = await request(app)
       .post("/api/login")
-      //.set("Content-type", "application/json")
       .send({ usuario: "admin", clave: "errónea" });
 
     expect(res.statusCode).toEqual(401);
     expect(res.body.message).toEqual("Usuario o clave incorrectos");
   });
 
-  it("Devolvería el token para usuario admin", async function () {
+  it("Devolvería el token para usuario jefe", async function () {
     const res = await request(app).post("/api/login").send(usuarioJefe);
 
     expect(res.statusCode).toEqual(200);
@@ -39,12 +36,11 @@ describe("GET /api/usuarios", () => {
     expect(res.body.message).toEqual("Acceso denegado");
   });
 
-  
-  it("Devolvería todos los usuarios, solo autorizado para administradores", async function () {
+  it("Devolvería todos los usuarios, solo autorizado para jefes", async function () {
     const res1 = await request(app)
-    .post("/api/login")
-    .set("Content-type", "application/json")
-    .send(usuarioJefe);
+      .post("/api/login")
+      .set("Content-type", "application/json")
+      .send(usuarioJefe);
     expect(res1.statusCode).toEqual(200);
     let token = res1.body.accessToken;
 
@@ -65,11 +61,11 @@ describe("GET /api/usuarios", () => {
     );
   });
 
-  it("Devolvería error de autorizacion, porque solo están autorizados los administradores", async function () {
+  it("Devolvería error de autorización, porque solo están autorizados los jefes", async function () {
     const res1 = await request(app)
-    .post("/api/login")
-    .set("Content-type", "application/json")
-    .send(usuarioEmpleado);
+      .post("/api/login")
+      .set("Content-type", "application/json")
+      .send(usuarioEmpleado);
     expect(res1.statusCode).toEqual(200);
     let token = res1.body.accessToken;
 
