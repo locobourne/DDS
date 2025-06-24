@@ -40,7 +40,6 @@ app.get("/", (req, res) => {
 
 // levantar servidor una vez inicializada la base
 const port = 3000;
-app.locals.fechaInicio = new Date();
 
 inicializarBase().then(() => {
   app.listen(port, () => {
@@ -48,3 +47,5 @@ inicializarBase().then(() => {
     console.log(`Docs Swagger en http://localhost:${port}/api-docs`);
   });
 });
+
+export default app; // Para testing con supertest
