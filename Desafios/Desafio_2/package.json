@@ -1,0 +1,12 @@
+{
+  "name": "desafio 02 dds",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "desafio",
+  "main": "main.js",
+  "scripts": {
+    "test": "node main.js"
+  },
+  "author": "maxi",
+  "license": "MIT"
+}
