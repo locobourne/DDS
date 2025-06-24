@@ -1,6 +1,12 @@
 import request from "supertest";
 import app from "../index.js";
 
+import inicializarBase from '../models/inicializarBase.js';
+
+beforeAll(async () => {
+  await inicializarBase(); // crea tablas e inserta datos
+});
+
 describe("GET /api/categorias", function () {
   it("Devolveria todos los categorias", async function () {
     const res = await request(app)
@@ -33,5 +39,13 @@ describe("GET /api/categorias/:id", function () {
         Nombre: expect.any(String),
       })
     );
+  });
+});
+
+describe("GET /api/categorias/:id - no existe", () => {
+  it("debería devolver 404 y mensaje de categoría no encontrada", async () => {
+    const res = await request(app).get("/api/categorias/9999");
+    expect(res.statusCode).toBe(404);
+    expect(res.body).toEqual({ message: "categoria no encontrado" });
   });
 });

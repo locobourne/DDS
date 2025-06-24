@@ -2,24 +2,24 @@ import sequelize from './configurarSequelize.js';
 import categorias from './categoriasModel.js';
 import articulos from './articulosModel.js';
 import usuarios from './usuariosModel.js';
+
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
-const isTest = process.env.JEST_WORKER_ID !== undefined;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-async function getDirname() {
-  if (isTest) return process.cwd();
-  const { fileURLToPath } = await import('url');
-  const __filename = fileURLToPath(import.meta.url);
-  return path.dirname(__filename);
+if (process.argv[1] === new URL(import.meta.url).pathname) {
+  inicializarBase(); // Si se ejecuta este archivo directamente
 }
 
 async function inicializarBase() {
   try {
-    const __dirname = await getDirname();
-    const archivo = path.join(__dirname, 'data/pymes.db');
-
-    if (fs.existsSync(archivo)) return;
+    const archivo = path.join(__dirname, '../data/pymes.db');
+    if (fs.existsSync(archivo)) {
+      return; // Si ya existe la base, no hace nada
+    }
 
     await sequelize.sync({ force: true });
 
@@ -33,18 +33,9 @@ async function inicializarBase() {
   }
 }
 
-if (!isTest) {
-  const launch = async () => {
-    const __dirname = await getDirname();
-    const scriptPath = path.join(__dirname, 'inicializarBase.js');
-    if (process.argv[1] === scriptPath) await inicializarBase();
-  };
-  launch();
-}
-
 async function DatosArticulos() {
   await articulos.bulkCreate([
-     { ArticuloId: 1, Nombre: 'KIT DIRECT TV PREPA 0.60MT', Precio: 299.00, CodigoDeBarra: '0779815559001', IdCategoria: 10, Stock: 329, FechaAlta: '2017-01-19', Activo: true },
+        { ArticuloId: 1, Nombre: 'KIT DIRECT TV PREPA 0.60MT', Precio: 299.00, CodigoDeBarra: '0779815559001', IdCategoria: 10, Stock: 329, FechaAlta: '2017-01-19', Activo: true },
     { ArticuloId: 2, Nombre: 'KIT DIRECT TV PREPA 0.90MT', Precio: 349.00, CodigoDeBarra: '0779815559002', IdCategoria: 10, Stock: 468, FechaAlta: '2017-01-31', Activo: true },
     { ArticuloId: 3, Nombre: 'LED 22" LG FHD 22MN42APM', Precio: 2669.00, CodigoDeBarra: '0779808338808', IdCategoria: 10, Stock: 536, FechaAlta: '2017-01-12', Activo: true },
     { ArticuloId: 4, Nombre: 'LED 24" ILO HD DIGITAL MOD LDH24ILO02', Precio: 2999.00, CodigoDeBarra: '0779696260024', IdCategoria: 10, Stock: 169, FechaAlta: '2017-01-30', Activo: true },
