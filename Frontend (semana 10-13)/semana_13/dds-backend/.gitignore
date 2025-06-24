@@ -1,1 +1,5 @@
+# Node modules
 node_modules/
+
+# Archivos de lock de dependencias
+package-lock.json
