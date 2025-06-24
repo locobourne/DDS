@@ -7,8 +7,8 @@ const sequelize = new Sequelize({
   define: {
     freezeTableName: true,  // no pluraliza los nombres de las tablas, modelo = tabla
     timestamps: false,  // no crea campos de fecha de creación y modificación
-
   },
+  logging: false,  // <--- agregar esta línea para desactivar los logs SQL
 });
 
 

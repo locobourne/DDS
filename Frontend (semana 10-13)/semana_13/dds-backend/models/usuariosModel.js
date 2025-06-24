@@ -21,6 +21,6 @@ const usuarios = sequelize.define('usuarios', {
   }
   
 });
-console.log('usuariosModel.js');
+
 
 export default usuarios;

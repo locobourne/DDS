@@ -9,7 +9,7 @@ import cors from "cors";
 
 import swaggerUi from "swagger-ui-express";
 import swaggerSpec from "./config/swagger.js";
-console.log(Object.keys(swaggerSpec.paths)); 
+
 
 // crear servidor
 const app = express();
