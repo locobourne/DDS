@@ -3,6 +3,7 @@ import categoriasmockRouter from "./routes/categoriasmock.js";
 import inicializarBase from "./models/inicializarBase.js";
 import categoriasRouter from "./routes/categorias.js";
 import articulosRouter from "./routes/articulos.js";
+import cors from "cors";
 
 import swaggerUi from "swagger-ui-express";
 import swaggerSpec from "./config/swagger.js";
@@ -11,6 +12,14 @@ import swaggerSpec from "./config/swagger.js";
 const app = express();
 
 app.use(express.json());
+
+// configurar servidor
+app.use(
+  cors({
+    origin: "*", // origin: 'https://dds-frontend.azurewebsites.net'
+  })
+);
+
 
 // Swagger UI - Documentación API
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));

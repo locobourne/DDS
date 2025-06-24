@@ -11,35 +11,59 @@ const options = {
     servers: [
       {
         url: "http://localhost:3000",
-        description: "Servidor local"
-      }
+        description: "Servidor local",
+      },
     ],
     tags: [
       {
         name: "Articulos",
-        description: "Operaciones sobre artículos"
-      }
+        description: "Operaciones sobre artículos",
+      },
+      {
+        name: "Seguridad",
+        description: "Autenticación y autorización",
+      },
     ],
     components: {
       schemas: {
         Articulo: {
           type: "object",
           properties: {
-            IdArticulo:    { type: "integer", example: 1 },
-            Nombre:        { type: "string",  example: "Artículo de prueba" },
-            Precio:        { type: "number",  example: 99.9 },
-            CodigoDeBarra: { type: "string",  example: "1234567890123" },
-            IdCategoria:   { type: "integer", example: 2 },
-            Stock:         { type: "integer", example: 100 },
-            FechaAlta:     { type: "string",  format: "date-time", example: "2025-06-24T12:00:00Z" },
-            Activo:        { type: "boolean", example: true }
+            IdArticulo: { type: "integer", example: 1 },
+            Nombre: { type: "string", example: "Artículo de prueba" },
+            Precio: { type: "number", example: 99.9 },
+            CodigoDeBarra: { type: "string", example: "1234567890123" },
+            IdCategoria: { type: "integer", example: 2 },
+            Stock: { type: "integer", example: 100 },
+            FechaAlta: {
+              type: "string",
+              format: "date-time",
+              example: "2025-06-24T12:00:00Z",
+            },
+            Activo: { type: "boolean", example: true },
           },
-          required: ["Nombre", "Precio", "Stock", "Activo"]
-        }
-      }
-    }
+          required: ["Nombre", "Precio", "Stock", "Activo"],
+        },
+        LoginRequest: {
+          type: "object",
+          properties: {
+            usuario: { type: "string", example: "admin" },
+            clave: { type: "string", example: "123" },
+          },
+          required: ["usuario", "clave"],
+        },
+        TokenResponse: {
+          type: "object",
+          properties: {
+            accessToken: { type: "string" },
+            refreshToken: { type: "string" },
+            message: { type: "string" },
+          },
+        },
+      },
+    },
   },
-  apis: ["./routes/*.js"],  // apunta a todos los JS en /routes
+  apis: ["./routes/*.js"], // apunta a todos los JS en /routes
 };
 
 const swaggerSpec = swaggerJSDoc(options);
