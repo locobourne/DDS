@@ -5,6 +5,8 @@ import categoriasRouter from "./routes/categorias.js";
 import articulosRouter from "./routes/articulos.js";
 import seguridadRouter from "./routes/seguridad.js";
 import usuariosRouter from "./routes/usuarios.js";
+import isAliveRouter from './routes/isAlive.js';
+import notFoundMiddleware from './middlewares/notFound.js';
 import cors from "cors";
 
 import swaggerUi from "swagger-ui-express";
@@ -33,10 +35,14 @@ app.use(categoriasmockRouter);
 app.use(articulosRouter);
 app.use(seguridadRouter);
 app.use(usuariosRouter);
+app.use(isAliveRouter);
+
 
 app.get("/", (req, res) => {
   res.send("Backend inicial dds-backend!");
 });
+
+app.use(notFoundMiddleware);
 
 // levantar servidor una vez inicializada la base
 const port = 3000;
