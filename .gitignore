@@ -1,0 +1,6 @@
+# Dependencias (se regeneran con npm install)
+node_modules/
+package-lock.json
+
+# Sistema operativo
+.DS_Store
